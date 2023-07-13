@@ -5,37 +5,41 @@ import {Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/m
 
 
 import "./eventpage.css"
+import { ModeEdit } from '@mui/icons-material';
 
 const EventPage = () => {
     const {state, dispatch,id} = useParams();
     const {meetupData} = useContext(AppContext);
-    const [isPaid, setIsPais] = useState(getEvent?.isPaid);
+    
     const [rsvp, setRsvp] = useState();
     const [showModal, setShowModal] = useState(false);
-    const getEvent = meetupData?.find((data)=> data.id === id)
+    const getEvent = meetupData?.find((data)=> data.id === id);
+    const [isPaid, setIsPais] = useState(false);
 const handleButtonClick =(e) =>{
     
+setShowModal(true)
+}
 
-    <Dialog open={showModal} onClose={setShowModal}>
+const model = <Dialog open={showModal} onClose={setShowModal}>
 
   
-  <DialogTitle>Complete your RSVP</DialogTitle>
-  <DialogContent>
-    <label htmlFor="name"> Name:
-        <input required type="text" name="" id="name" />
-    </label>
-    <label htmlFor="email"> Email:
-        <input required type="email" name="" id="email" />
-    </label>
-    <p>You have to make the payment at the venue</p>
-  </DialogContent>
-  <DialogActions>
-          <Button onClick={(e)=> setIsPais(true)}>Submit</Button>
-        
-        </DialogActions>
+<DialogTitle>Complete your RSVP</DialogTitle>
+<DialogContent>
+  <label htmlFor="name"> Name:
+      <input required type="text" name="" id="name" />
+  </label>
+  <label htmlFor="email"> Email:
+      <input required type="email" name="" id="email" />
+  </label>
+  <p>You have to make the payment at the venue</p>
+</DialogContent>
+<DialogActions>
+        <Button onClick={(e)=> setIsPais(true)}>Submit</Button>
+      
+      </DialogActions>
 
 </Dialog>
-}
+
   return (
     <div>
 
@@ -67,6 +71,7 @@ const handleButtonClick =(e) =>{
 <div className="other-info">
     <div className="button-rsvp">
         <button disabled={isPaid} onClick={handleButtonClick}>RSVP</button>
+    {model}
     </div>
 </div>
                 </div>
