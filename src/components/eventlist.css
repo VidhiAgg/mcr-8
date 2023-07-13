@@ -1,0 +1,28 @@
+.event-conatiner{
+    display: flex;
+    flex-direction: column;
+ cursor: pointer;
+    width: 200px;
+    height: 300px;
+}
+.image-tag{
+    display: flex;
+    position: relative;
+}
+.image-tag img{
+    display: flex;
+    position: relative;
+    width: 200px;
+    height: 150px;
+    border-radius: 1rem;
+}
+.image-tag p{
+    position: absolute;
+    
+    background-color: rgba(206, 188, 188, 0.548);
+    font-weight: 400;
+    padding: 8px;
+    color: black;
+    
+
+}

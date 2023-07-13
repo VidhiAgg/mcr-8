@@ -1,0 +1,30 @@
+.event-container{
+    display: flex;
+   flex-direction: row;
+   margin: auto;
+   justify-content: space-evenly;
+
+}
+
+.main-event-details{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+.event-details, .details{
+display: flex;
+flex-direction: column;
+
+}
+
+.img-cont {
+    display: flex;
+    width: 400px;
+}
+.img-cont img{
+    width: 400px;
+    height: 400px;
+}
+.para{
+    width: 400px
+}
