@@ -5,11 +5,11 @@ import {Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/m
 
 
 import "./eventpage.css"
-import { ModeEdit } from '@mui/icons-material';
+import { ModeEdit, SearchOffOutlined } from '@mui/icons-material';
 
 const EventPage = () => {
-    const {state, dispatch,id} = useParams();
-    const {meetupData} = useContext(AppContext);
+    const {id} = useParams();
+    const {meetupData,state, dispatch,} = useContext(AppContext);
     
     const [rsvp, setRsvp] = useState();
     const [showModal, setShowModal] = useState(false);
@@ -34,7 +34,7 @@ const model = <Dialog open={showModal} onClose={setShowModal}>
   <p>You have to make the payment at the venue</p>
 </DialogContent>
 <DialogActions>
-        <Button onClick={(e)=> setIsPais(true)}>Submit</Button>
+        <Button onClick={(e)=> {setIsPais(true); setShowModal(false)}}>Submit</Button>
       
       </DialogActions>
 
@@ -46,7 +46,15 @@ const model = <Dialog open={showModal} onClose={setShowModal}>
         {
             getEvent ?  (
                 <div className="event-container">
- 
+  <div className="header">
+        <h1>Meet up</h1>
+        <label htmlFor="">
+          <SearchOffOutlined/>
+        <input value = {state.searchTag}  type="text" 
+        onChange={(e)=>dispatch({type:"_search_input_", payload: e.target.value})} placeholder='Search by title and tags.'/>
+        </label>
+      </div>
+
 
 <hr />
 
@@ -65,14 +73,14 @@ const model = <Dialog open={showModal} onClose={setShowModal}>
         </div>
        
     </div>
-
-
-</div>
-<div className="other-info">
+    <div className="other-info">
     <div className="button-rsvp">
         <button disabled={isPaid} onClick={handleButtonClick}>RSVP</button>
     {model}
     </div>
+
+</div>
+
 </div>
                 </div>
             ) :
